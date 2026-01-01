@@ -20,8 +20,8 @@ jobs:
 
     - name: Build & Push Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/react-app:latest .
-        docker push ${{ secrets.DOCKER_USERNAME }}/react-app:latest
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/react-portfolio:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/react-portfolio:latest
 
     - name: Deploy to Azure VM via SSH
       uses: appleboy/ssh-action@v1.0.3
