@@ -1,6 +1,5 @@
 import SkillCards from "./SkillCard";
 import Titles from "../others/Titles";
-import { Link } from "react-router-dom";
 export default function Skills() {
   return (
     <div className="flex flex-col items-center justify-start gap-6 w-full px-4 md:px-8">
