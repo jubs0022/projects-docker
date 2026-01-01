@@ -1,0 +1,44 @@
+name: CI/CD Docker Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2️⃣ Login to Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # 3️⃣ Build & Push Docker Image
+      - name: Build & Push Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/react-portfolio:latest ./react-portfolio
+          docker push ${{ secrets.DOCKER_USERNAME }}/react-portfolio:latest
+
+      # 4️⃣ Deploy to Azure VM via SSH
+      - name: Deploy to Azure VM via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            # Pull latest image
+            docker pull ${{ secrets.DOCKER_USERNAME }}/react-portfolio:latest
+            # Stop and remove old container
+            docker stop react-portfolio || true
+            docker rm react-portfolio || true
+            # Run container (host port 5173 → container port 80)
+            docker run -d -p 5173:80 --name react-portfolio ${{ secrets.DOCKER_USERNAME }}/react-portfolio:latest
+
