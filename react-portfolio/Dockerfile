@@ -12,19 +12,14 @@ COPY . .
 # Build the Vite app
 RUN npm run build
 
-# Stage 2: Serve with Nginx
+# Stage 2: Serve with Nginx (internal only)
 FROM nginx:alpine
 
-# Remove default Nginx HTML and use custom config if needed
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy Vite build output
+# Copy Vite build output to Nginx default html folder
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+# Expose a non-conflicting port for host reverse proxy
+EXPOSE 5173
 
-# Start Nginx
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
-
-
