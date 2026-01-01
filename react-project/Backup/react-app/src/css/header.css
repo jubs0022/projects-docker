@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Rokkitt';
+    src: url("../assets/fonts/Rokkitt-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+    background-color: #E0E3E7;
+    color: black;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.NavContainer p{
+    margin: 0;
+    margin-left: 4%;
+    margin-right: 27%;
+    font-family: 'Rokkitt', serif;
+    font-weight: 700;
+    font-size: 32px;
+}
+ul{
+    display: flex;
+    list-style:none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #3C4657;
+    
+    margin-top: 8px;
+}
+li{
+    margin-top: 8px;
+}
+li a{
+    margin-right: 37px;
+    text-decoration: none; /* removes underline */
+    color: inherit; 
+
+}
+
+li a:hover {
+  color: black;        /* optional hover color */
+}
+
+section {
+  scroll-margin-top: 8vh; /* same as navbar height */
+}
+
+.NavContainer {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-color: #E0E3E7;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* 
+  background-color: #E0E3E7; */
+}
+
+
+
+
+.themeSwitch {
+  background-color: #384255;
+  margin-top: 3px;
+  margin-left: 23%;
+  width: 76px;
+  height: 34px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* The circle knob */
+.switchKnob {
+  width: 26px;
+  height: 26px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: all 0.3s ease;
+}
+
+.switchKnob img{
+    margin-top: 15%;
+    margin-left: 14%;
+}
+
+.dark-mode .NavContainer, .dark-mode{
+  background-color: #343435;
+  transition: background-color 0.5s;
+}
+.dark-mode ul, .dark-mode body{ 
+  color: white;
+}
+
+.dark-mode .themeSwitch{
+  background-color: #E0E3E7;
+}
+
+.dark-mode .switchKnob{
+    background-color: #343435;
+    left: 45px;
+}

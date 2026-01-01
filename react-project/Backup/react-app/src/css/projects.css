@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../assets/fonts/Montserrat-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url("../assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Potta_One';
+    src: url("../assets/fonts/PottaOne-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.projectsContainer{
+    width: 0;
+}
+
+
+.projectsTitle{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-left: 2%;
+    margin-bottom: -15px;
+}
+
+.projectsContent{
+    margin: 0;
+    margin-bottom: 20px;
+    margin-left: 2.1%;
+}
+.projectsObject{
+    padding: 30px;
+    background-color: #ECECEC;
+    width: 1168px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.06);
+    margin-left: 38px;
+}
+.projectsCards{
+    display: flex;
+    flex-wrap: wrap;
+    width: 360px;
+    height: 522px;
+    background-color: #364151;
+    border-radius: 20px;
+    color: white;
+}
+.projectsCardTitle p{
+    height: 45px;
+    margin: 10px;
+    margin-top: 22px;
+    font-family: "Potta_One", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.projectsCardContent p{
+    text-align: justify;
+    margin: 10px;
+    height: 110px;
+}
+
+.projectsCardButtons{
+    display: flex;
+}
+
+.button1 p, .button2 p{
+    margin: 0;
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.button1 img, .button2 img{
+    margin-left:10px;
+    margin-top:8px;
+}
+
+.button1 p{
+    margin-left: 14px;
+}
+.button2 p{
+    margin-left: 43px;
+    margin-right: 7px;
+}
+
+.button1, .button2{
+    padding: 0;
+    margin: 0;
+    color: black;
+    display: flex;
+    width: 142px;
+    height: 48px;
+    background-color: white;
+    border-radius:  15px;
+    margin-right: 20px;
+}
+.button1{
+    margin-left: 28px;
+}
+
+
+.dark-mode .projectsContainer{
+    color: white;
+}
+
+.dark-mode .projectsObject{
+    background-color: rgba(0, 0, 0, 0.50);
+    width: 1168px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 4px 5px rgba(255, 255, 255, 0.06);
+    padding-top: 4px;
+    margin-bottom: 30px;
+}
+
+.dark-mode .projectsCards{
+    background-color: rgba(255,255,255, 0.4); 
+    box-shadow: 0px 0px 4px 5px rgba(255,255,255, 0.20);
+}
+
+
