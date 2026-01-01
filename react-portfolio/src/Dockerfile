@@ -1,17 +1,38 @@
-# Build the Vite app
+# --------------------------
+# Stage 1: Build the Vite app
+# --------------------------
+FROM node:18-alpine AS build
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy all source files
+COPY . .
+
+# Build the app
 RUN npm run build
 
-# Stage 2: Serve with Nginx (internal only)
-FROM nginx:alpine
+# --------------------------
+# Stage 2: Serve with Vite (no Nginx)
+# --------------------------
+FROM node:18-alpine
 
-# Copy Vite build output to Nginx default html folder
+WORKDIR /app
 
+# Copy build output from Stage 1
+COPY --from=build /app/dist ./dist
 
+# Install a lightweight HTTP server (serve)
+RUN npm install -g serve
 
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Expose a non-conflicting port for host reverse proxy
+# Expose the port
 EXPOSE 5173
 
-# Start Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+# Start the server
+CMD ["serve", "-s", "dist", "-l", "5173"]
