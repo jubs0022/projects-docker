@@ -33,4 +33,4 @@ jobs:
           docker pull ${{ secrets.DOCKER_USERNAME }}/react-portfolio
           docker stop react-portfolio || true
           docker rm react-portfolio || true
-          docker run -d -p 80:80 --name react-portfolio ${{ secrets.DOCKER_USERNAME }}/react-portfolio
+          docker run -d -p 5173:80 --name react-portfolio ${{ secrets.DOCKER_USERNAME }}/react-portfolio
