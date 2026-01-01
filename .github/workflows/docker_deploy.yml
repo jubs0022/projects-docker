@@ -20,7 +20,7 @@ jobs:
 
     - name: Build & Push Docker Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/react-portfolio ./react-portfolio
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/react-portfolio react-portfolio
         docker push ${{ secrets.DOCKER_USERNAME }}/react-portfolio
 
     - name: Deploy to Azure VM via SSH
@@ -31,6 +31,6 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/react-portfolio
-          docker stop react-app || true
-          docker rm react-app || true
-          docker run -d -p 80:80 --name react-app ${{ secrets.DOCKER_USERNAME }}/react-portfolio
+          docker stop react-portfolio || true
+          docker rm react-portfolio || true
+          docker run -d -p 80:80 --name react-portfolio ${{ secrets.DOCKER_USERNAME }}/react-portfolio
