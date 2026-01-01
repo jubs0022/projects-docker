@@ -14,11 +14,11 @@ export default function App() {
       <Header />
 
       <Routes>
-        <Route path="portfolio/" element={<Homepage />} />
-        <Route path="portfolio/skills" element={<Skills />} />
-        <Route path="portfolio/about" element={<About />} />
-        <Route path="portfolio/contacts" element={<Contacts />} />
-        <Route path="portfolio/projects" element={<Project />} />
+        <Route path="/portfolio/" element={<Homepage />} />
+        <Route path="/portfolio/skills" element={<Skills />} />
+        <Route path="/portfolio/about" element={<About />} />
+        <Route path="/portfolio/contacts" element={<Contacts />} />
+        <Route path="/portfolio/projects" element={<Project />} />
       </Routes>
     </div>
   );
