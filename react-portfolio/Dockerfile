@@ -1,5 +1,8 @@
+# --------------------------
 # Stage 1: Build Vite app
+# --------------------------
 FROM node:18-alpine AS build
+
 WORKDIR /app
 
 # Install dependencies
@@ -8,18 +11,26 @@ RUN npm install
 
 # Copy source code
 COPY . .
-
-# Build the Vite app
 RUN npm run build
 
-# Stage 2: Serve with Nginx (internal only)
+
+# --------------------------
+# Stage 2: Serve with Nginx
+# --------------------------
 FROM nginx:alpine
 
-# Copy Vite build output to Nginx default html folder
+# Remove default nginx static config
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy Vite build output
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose a non-conflicting port for host reverse proxy
+# Expose port for host reverse proxy
 EXPOSE 5173
 
-# Start Nginx in the foreground
+# SPA fallback for React Router (no nginx.conf needed)
+RUN sed -i 's|index  index.html index.htm;|index index.html index.htm;\n    try_files $uri $uri/ /index.html;|g' \
+    /etc/nginx/conf.d/default.conf
+
+# Run Nginx
 CMD ["nginx", "-g", "daemon off;"]
