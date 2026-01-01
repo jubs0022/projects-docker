@@ -30,10 +30,10 @@ export default function Header() {
 
           <nav>
             <ul className="flex gap-6 md:gap-9 font-Poppins dark:text-white text-base xl:text-xl">
-              <li><Link to="/">HOME</Link></li>
-              <li><Link to="/about">ABOUT</Link></li>
-              <li><Link to="/contacts">CONTACT</Link></li>
-              <li><Link to="/projects">PROJECTS</Link></li>
+              <li><Link to="/portfolio/">HOME</Link></li>
+              <li><Link to="/portfolio/about">ABOUT</Link></li>
+              <li><Link to="/portfolio/contacts">CONTACT</Link></li>
+              <li><Link to="/portfolio/projects">PROJECTS</Link></li>
             </ul>
           </nav>
 
