@@ -46,13 +46,19 @@ export default function ProjectsCard({
         <div className="flex my-3 mx-8 justify-between gap-3 mt-auto">
           <div className="flex w-1/2 border-[#0267ED] border p-1 rounded-md">
             <img className="w-7" src="/images/github.png" />
-            <a href={projectCodeLink}>
+            <a 
+            target="_blank"
+        rel="noopener noreferrer"
+            href={projectCodeLink}>
               <p className="font-regular text-sm mt-1 ml-2">View Code</p>
             </a>
           </div>
           <div className="flex w-1/2 border-[#0267ED] border py-1 rounded-md">
             <img className="w-7 ml-2 mr-3" src="/images/external-link.png" />
-            <a href={projectSiteLink}>
+            <a
+            target="_blank"
+        rel="noopener noreferrer"
+            href={projectSiteLink}>
               <p className="font-regular text-sm mt-1">Visit site</p>
             </a>
           </div>
