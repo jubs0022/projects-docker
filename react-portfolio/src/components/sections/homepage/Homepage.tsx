@@ -1,6 +1,5 @@
 import Titles from "../others/Titles";
 import Footer from "../footer/Footer";
-import ErrorHandling from "../others/ErrorHandling";
 import Profile from "./Profile";
 import AboutMe from "./AboutMe";
 import Skill from "./Skill";
