@@ -51,7 +51,7 @@ export default function SocialLinks() {
           />
       </a>
       <a
-        href="https://github.com/jubertnantes0418-netizen"
+        href="https://github.com/jubs0022"
         target="_blank"
         rel="noopener noreferrer"
       >

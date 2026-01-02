@@ -4,6 +4,7 @@ import ErrorHandling from "../others/ErrorHandling";
 import Profile from "./Profile";
 import AboutMe from "./AboutMe";
 import Skill from "./Skill";
+import Project from "./Project";
 
 export default function Homepage() {
   return (
@@ -20,7 +21,7 @@ export default function Homepage() {
       <div className="mt-32 w-full mx-auto">
         <Titles title="PROJECTS" />
       </div>
-      <ErrorHandling />
+      <Project />
       <Footer />
     </div>
   );
